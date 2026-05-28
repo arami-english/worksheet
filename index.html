@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Small vs Little — интерактивный тренажёр</title>
+    <title>At the end vs In the end — интерактивный тренажёр</title>
     <style>
         * {
             box-sizing: border-box;
         }
         body {
-            background: #f0f4f8;
+            background: #f0f4fa;
             font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
             margin: 0;
             padding: 24px 20px;
@@ -29,14 +29,14 @@
             margin-top: 0;
             margin-bottom: 0.25rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #1f5e3a, #2c7a47);
+            background: linear-gradient(135deg, #1f5e7e, #2c8caa);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
         .sub {
-            color: #3a5e48;
-            border-left: 4px solid #f4b942;
+            color: #2c6b7c;
+            border-left: 4px solid #ffb347;
             padding-left: 18px;
             margin: 15px 0 25px 0;
             background: #fef7e0;
@@ -44,7 +44,7 @@
             font-weight: 500;
         }
         .rule-card {
-            background: #eef3e9;
+            background: #e6f2f5;
             border-radius: 28px;
             padding: 18px 24px;
             margin-bottom: 32px;
@@ -61,18 +61,18 @@
             margin: 0 0 10px 0;
             font-size: 1.3rem;
         }
-        .small-badge {
-            background: #cfe6df;
-            color: #1a4d3a;
+        .at-badge {
+            background: #cfe6ef;
+            color: #1a5c6e;
             padding: 4px 14px;
             border-radius: 40px;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 8px;
         }
-        .little-badge {
+        .in-badge {
             background: #fde6c0;
-            color: #a45d2e;
+            color: #b45f2b;
             padding: 4px 14px;
             border-radius: 40px;
             font-weight: 700;
@@ -109,6 +109,10 @@
             gap: 12px;
             transition: background 0.15s;
             border: 1px solid #f0f2f5;
+        }
+        .task.highlight-unanswered {
+            background: #fff6e0;
+            border-left: 5px solid #ffb347;
         }
         .task-text {
             font-size: 1.02rem;
@@ -160,8 +164,18 @@
         .neutral-feedback {
             color: #8f9bb3;
         }
+        .show-answer-hint {
+            background: #eaf4e8;
+            color: #2c6e49;
+            padding: 2px 8px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
         button {
-            background: #2c6e49;
+            background: #2c7a9e;
             color: white;
             border: none;
             padding: 12px 28px;
@@ -174,11 +188,17 @@
             margin-top: 8px;
         }
         button:hover {
-            background: #1f5438;
+            background: #1f5f7a;
             transform: scale(0.97);
         }
         .reset-btn {
             background: #5f6c84;
+        }
+        .reveal-btn {
+            background: #e68a2e;
+        }
+        .reveal-btn:hover {
+            background: #c56e1a;
         }
         .score-area {
             background: #eef2fa;
@@ -188,10 +208,6 @@
             text-align: center;
             font-weight: bold;
             font-size: 1.15rem;
-        }
-        hr {
-            margin: 18px 0;
-            border-color: #e2edf2;
         }
         footer {
             text-align: center;
@@ -216,30 +232,30 @@
 </head>
 <body>
 <div class="container">
-    <h1>📦 Small  vs  Little</h1>
+    <h1>⏳ At the end  vs  In the end</h1>
     <div class="sub">
-        🔹 <strong>small</strong> — физический размер, нейтральные измерения, масштаб (антоним large/big)<br>
-        🔹 <strong>little</strong> — эмоции, возраст, умиление, субъективное отношение + «немного» (неисчисляемое)
+        🔹 <strong>at the end (of something)</strong> — указывает на конкретный момент или точку в пространстве/времени (в конце чего-либо: книги, фильма, улицы, месяца)<br>
+        🔹 <strong>in the end</strong> — означает «в итоге», «в конечном счёте», «после всего» (синоним finally / eventually)
     </div>
     <div class="rule-card">
         <div class="rule">
-            <span class="small-badge">📏 SMALL (мир физики)</span>
+            <span class="at-badge">📍 AT THE END (of)</span>
             <ul style="margin: 8px 0 0 18px; padding-left: 0;">
-                <li>размер, площадь, рост</li>
-                <li>одежда/обувь (too small)</li>
-                <li>компания/группа/количество</li>
-                <li>нейтральная характеристика</li>
-                <li>степени сравнения: smaller, smallest</li>
+                <li>в конце фильма / книги / дня</li>
+                <li>в конце улицы / коридора</li>
+                <li>в конце месяца / года</li>
+                <li>всегда можно добавить <strong>of</strong></li>
+                <li>отвечает на вопрос «когда именно?»</li>
             </ul>
         </div>
         <div class="rule">
-            <span class="little-badge">❤️ LITTLE (мир эмоций и возраста)</span>
+            <span class="in-badge">🏁 IN THE END</span>
             <ul style="margin: 8px 0 0 18px;">
-                <li>младший брат/сестра (little brother)</li>
-                <li>умиление: cute little house</li>
-                <li>пренебрежение: dirty little secret</li>
-                <li>a little + неисчисл. (немного)</li>
-                <li>little by little, a little bit</li>
+                <li>в итоге, в конечном счёте</li>
+                <li>после долгих событий / решений</li>
+                <li>синоним: finally, eventually</li>
+                <li>не используется с of</li>
+                <li>выражает результат</li>
             </ul>
         </div>
     </div>
@@ -247,230 +263,95 @@
     <div id="exercises-root"></div>
 
     <div class="score-area" id="scorePanel">
-        🧠 Нажмите «Проверить всё» — узнайте результат
+        📊 Выберите ответ — проверка мгновенная
     </div>
     <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 12px;">
-        <button id="checkAllBtn">✅ Проверить все задания</button>
-        <button id="resetAllBtn" class="reset-btn">⟳ Сбросить ответы</button>
+        <button id="revealAnswersBtn" class="reveal-btn">🔍 Показать все правильные ответы</button>
+        <button id="resetAllBtn" class="reset-btn">⟳ Сбросить все ответы</button>
     </div>
     <footer>
-        * В каждом задании выберите small или little. После проверки покажется правильный вариант и пояснение.
+        * Ответы проверяются сразу после выбора. Кнопка «Показать все правильные ответы» подсветит неотвеченные задания и покажет верные варианты на 7 секунд.
     </footer>
 </div>
 
 <script>
-    // --------------------------------------------------------------
-    // ДАННЫЕ ПО УПРАЖНЕНИЯМ (Small vs Little PDF, 5 упражнений)
-    // --------------------------------------------------------------
+    // ==============================================================
+    // УПРАЖНЕНИЯ: упражнение 1 и упражнение 2 (перевод)
+    // ==============================================================
     
-    // Упражнение 1. Факты или Эмоции? (9 заданий, но в PDF их 10, строго по оригиналу)
     const exercise1 = {
-        title: "📌 Упражнение 1. Факты или эмоции? (Small vs Little)",
+        title: "📖 Упражнение 1. Выберите правильный вариант",
         items: [
-            { text: "I have a ______ sister; she is five years old.", correct: "little", hint: "возраст/родство — младшая сестра" },
-            { text: "This room is too ______ for ten people.", correct: "small", hint: "физическая вместимость" },
-            { text: "Look at that ______ bird in the nest! It's so sweet.", correct: "little", hint: "умиление, милый" },
-            { text: "He lives in a ______ apartment in the city center.", correct: "small", hint: "нейтральный размер" },
-            { text: "Don't worry, it's just a ______ mistake.", correct: "small", hint: "незначительная ошибка (нейтрально)" },
-            { text: "The shirt I bought is a size too ______.", correct: "small", hint: "размер одежды" },
-            { text: "We stayed in a charming ______ hotel by the sea.", correct: "little", hint: "очарование, уют" },
-            { text: "A ______ number of people attended the lecture.", correct: "small", hint: "официальное количество" },
-            { text: "I remember that ______ toy I had when I was a child.", correct: "little", hint: "ностальгия, эмоция" },
-            { text: "My feet are very ______; I wear size 35.", correct: "small", hint: "физический размер ноги" }
+            { text: "______ of the movie, the hero dies.", correct: "at the end", hint: "конкретный момент — в конце фильма (at the end of)" },
+            { text: "We had a lot of problems, but ______ everything was fine.", correct: "in the end", hint: "в итоге, в конечном счёте" },
+            { text: "You'll find the post office ______ of the street.", correct: "at the end", hint: "в конце улицы (физическое местоположение)" },
+            { text: "______, we decided to stay home.", correct: "in the end", hint: "в конце концов мы приняли решение" },
+            { text: "There's a list of references ______ of the book.", correct: "at the end", hint: "в конце книги (конкретное место)" },
+            { text: "He tried several jobs, and ______ became a teacher.", correct: "in the end", hint: "после всех попыток → в итоге" },
+            { text: "I get paid ______ of the month.", correct: "at the end", hint: "в конце месяца (временная точка)" },
+            { text: "______, nobody was disappointed with the result.", correct: "in the end", hint: "в конечном итоге никто не разочаровался" },
+            { text: "They met ______ of the corridor.", correct: "at the end", hint: "в конце коридора (место)" },
+            { text: "We argued for hours, but ______ we reached an agreement.", correct: "in the end", hint: "после споров — в итоге" }
         ]
     };
     
-    // Упражнение 2. Степени сравнения и грамматика
     const exercise2 = {
-        title: "📐 Упражнение 2. Степени сравнения и грамматика",
+        title: "🔄 Упражнение 2. Переведите на английский",
         items: [
-            { text: "This is the ______ (small) box we have in the warehouse.", correct: "small", fillForm: "smallest", hint: "превосходная степень: smallest" },
-            { text: "My car is ______ (small) than yours.", correct: "small", fillForm: "smaller", hint: "сравнение размеров: smaller" },
-            { text: "There is ______ (little) milk left in the fridge.", correct: "little", fillForm: "little", hint: "неисчисляемое 'мало' — little milk" },
-            { text: "He knows ______ (little) about French history.", correct: "little", fillForm: "little", hint: "мало знает (little knowledge)" },
-            { text: "I need a ______ (small) size, please.", correct: "small", fillForm: "smaller", hint: "меньший размер" },
-            { text: "She is the ______ (small) child in her class (height).", correct: "small", fillForm: "smallest", hint: "самая маленькая по росту" },
-            { text: "Wait a ______ bit, I’m almost ready.", correct: "little", fillForm: "little", hint: "устойчивое выражение 'a little bit'" },
-            { text: "This ______ (small) laptop is perfect for travel.", correct: "small", fillForm: "small", hint: "нейтральный размер ноутбука" },
-            { text: "Is there any ______ (small) option available?", correct: "small", fillForm: "smaller", hint: "вариант поменьше" },
-            { text: "We have ______ (little) time to finish the project.", correct: "little", fillForm: "little", hint: "мало времени (неисчисляемое)" }
-        ]
-    };
-    
-    // Упражнение 3. Перевод на английский (Focus: Small)
-    const exercise3 = {
-        title: "🇺🇸 Упражнение 3. Переведите (small — размер, факты)",
-        items: [
-            { text: "Нам нужен стол поменьше. → We need a ______ table.", correct: "small", extra: "smaller", hint: "сравнительная степень small → smaller" },
-            { text: "Это маленькая компания, в ней всего 5 сотрудников. → It's a ______ company, only 5 employees.", correct: "small", hint: "нейтральный масштаб бизнеса" },
-            { text: "Его старая квартира была очень маленькой. → His old apartment was very ______.", correct: "small", hint: "физический размер" },
-            { text: "Эта обувь слишком маленькая для меня. → These shoes are too ______ for me.", correct: "small", hint: "размер обуви" },
-            { text: "Самый маленький город в мире находится здесь. → The ______ town in the world is here.", correct: "small", extra: "smallest", hint: "превосходная степень smallest" },
-            { text: "У него маленькие руки. → He has ______ hands.", correct: "small", hint: "физический параметр" },
-            { text: "Мы продаем маленькое количество товаров. → We sell a ______ quantity of goods.", correct: "small", hint: "официальное количество" },
-            { text: "Эта кнопка слишком маленькая, я не могу на нее нажать. → This button is too ______, I can't press it.", correct: "small", hint: "размер кнопки" },
-            { text: "У нее есть маленькая собака (фактический размер). → She has a ______ dog.", correct: "small", hint: "реальный размер (не эмоция)" },
-            { text: "Это был маленький шаг для человека. → It was a ______ step for a man.", correct: "small", hint: "нейтральный шаг" }
-        ]
-    };
-    
-    // Упражнение 4. Перевод на английский (Focus: Little)
-    const exercise4 = {
-        title: "💖 Упражнение 4. Переведите (little — возраст, эмоции, немного)",
-        items: [
-            { text: "У меня есть маленькая (младшая) сестра. → I have a ______ sister.", correct: "little", hint: "little sister = младшая сестра" },
-            { text: "Посмотри на этот милый маленький цветок! → Look at this cute ______ flower!", correct: "little", hint: "умиление" },
-            { text: "Когда я был маленьким, я любил молоко. → When I was ______, I loved milk.", correct: "little", hint: "when I was little = в детстве" },
-            { text: "Это его маленькая грязная тайна. → It's his dirty ______ secret.", correct: "little", hint: "dirty little secret — эмоц. окраска" },
-            { text: "Она живет в уютном маленьком домике. → She lives in a cozy ______ house.", correct: "little", hint: "уютный маленький домик" },
-            { text: "Дай мне немного времени. → Give me a ______ time.", correct: "little", hint: "a little time = немного времени" },
-            { text: "Мой младший брат выше меня. → My ______ brother is taller than me.", correct: "little", hint: "little brother = младший брат" },
-            { text: "Он — гадкий маленький человек (пренебрежение). → He is a nasty ______ man.", correct: "little", hint: "пренебрежительное little" },
-            { text: "В этой бутылке мало воды. → There is ______ water in this bottle.", correct: "little", hint: "little water = мало воды" },
-            { text: "Мало-помалу мы закончим работу. → ______ by little we will finish.", correct: "little", hint: "little by little" }
-        ]
-    };
-    
-    // Упражнение 5. Выберите верный вариант в контексте
-    const exercise5 = {
-        title: "🎯 Упражнение 5. Контекст: small или little?",
-        items: [
-            { text: "(Fact) The ant is a very ______ insect.", correct: "small", hint: "нейтральный размер насекомого" },
-            { text: "(Affection) I love my ______ kitten.", correct: "little", hint: "эмоциональное отношение" },
-            { text: "(Size) Could I have a ______ glass?", correct: "small", hint: "smaller glass (сравнение)" },
-            { text: "(Quantity) I have ______ interest in politics.", correct: "little", hint: "little interest = мало интереса" },
-            { text: "(Age) My ______ brother is a doctor now.", correct: "little", hint: "little brother = младший" },
-            { text: "(Scale) It was a ______ business back in 1990.", correct: "small", hint: "масштаб бизнеса" },
-            { text: "(Emotion) That ______ boy is so polite!", correct: "little", hint: "умиление/симпатия" },
-            { text: "(Space) The car is too ______ for a family of five.", correct: "small", hint: "физически тесная машина" },
-            { text: "(Detail) Focus on the ______ details of the contract.", correct: "small", hint: "мелкие детали (нейтрально)" },
-            { text: "(Opinion) He has a ______ mind (пренебрежительно).", correct: "little", hint: "little mind — ограниченный ум" }
+            { text: "В конце недели я устаю. → ______ of the week, I get tired.", correct: "at the end", hint: "в конце недели (временная точка)" },
+            { text: "В итоге мы купили машину. → ______, we bought a car.", correct: "in the end", hint: "в конечном счёте, после раздумий" },
+            { text: "Он живёт в конце этой улицы. → He lives ______ of this street.", correct: "at the end", hint: "физическое расположение" },
+            { text: "Сначала было трудно, но в конце концов я научился. → At first it was hard, but ______ I learned.", correct: "in the end", hint: "в итоге, после стараний" },
+            { text: "В конце фильма был неожиданный поворот. → There was a twist ______ of the film.", correct: "at the end", hint: "конкретный момент в фильме" },
+            { text: "В конце концов, правда вышла наружу. → ______, the truth came out.", correct: "in the end", hint: "в конечном итоге" },
+            { text: "Подпишите своё имя в конце документа. → Sign your name ______ of the document.", correct: "at the end", hint: "место в документе" },
+            { text: "Мы сомневались, но в итоге пошли на вечеринку. → We hesitated, but ______ we went to the party.", correct: "in the end", hint: "после колебаний — в итоге" },
+            { text: "В конце года мы подводим итоги. → ______ of the year, we take stock.", correct: "at the end", hint: "в конце года" },
+            { text: "В конце концов, всё наладится. → ______, everything will be fine.", correct: "in the end", hint: "оптимистичный итог" }
         ]
     };
 
-    const allExercises = [exercise1, exercise2, exercise3, exercise4, exercise5];
+    const allExercises = [exercise1, exercise2];
     
-    // Хранилище ответов: key "exIdx-itemIdx" => выбранное значение (small/little)
     let userSelections = new Map();
+    let revealActive = false;
     
-    // Функция для получения правильного текста ответа из задания (учитывая возможные формы smaller/smallest, но сводим к базе small/little)
     function getCanonicalCorrect(item) {
-        if (item.correct === "small" || item.correct === "little") return item.correct;
-        // на всякий случай, но в наших данных correct всегда small/little
         return item.correct;
     }
     
-    // Рендер всей страницы
-    function render() {
-        const root = document.getElementById('exercises-root');
-        if (!root) return;
-        root.innerHTML = '';
-        
-        allExercises.forEach((ex, exIdx) => {
-            const sectionDiv = document.createElement('div');
-            sectionDiv.className = 'section';
-            const titleEl = document.createElement('h2');
-            titleEl.innerHTML = ex.title;
-            sectionDiv.appendChild(titleEl);
-            
-            ex.items.forEach((item, itemIdx) => {
-                const taskId = `${exIdx}-${itemIdx}`;
-                const selectedValue = userSelections.get(taskId) || '';
-                const correctBase = getCanonicalCorrect(item);
-                
-                const taskDiv = document.createElement('div');
-                taskDiv.className = 'task';
-                const textSpan = document.createElement('div');
-                textSpan.className = 'task-text';
-                // если есть подсказка по форме (fillForm), добавляем в текст, но сохраняем читаемость
-                let displayText = item.text;
-                if (item.fillForm && !displayText.includes('(')) {
-                    // для упражнения 2 где нужно вставить форму слова, но мы упрощаем выбор small/little
-                    // однако в задании 2 написано "This is the ______ (small) box" — пользователь должен выбрать small/little
-                    // Оставим как есть
-                }
-                textSpan.innerText = displayText;
-                
-                const optionsDiv = document.createElement('div');
-                optionsDiv.className = 'options';
-                
-                // Radio small
-                const smallId = `radio_${taskId}_small`;
-                const smallLabel = document.createElement('label');
-                smallLabel.htmlFor = smallId;
-                const smallRadio = document.createElement('input');
-                smallRadio.type = 'radio';
-                smallRadio.name = `group_${taskId}`;
-                smallRadio.value = 'small';
-                smallRadio.id = smallId;
-                if (selectedValue === 'small') smallRadio.checked = true;
-                smallRadio.addEventListener('change', (e) => {
-                    if (e.target.checked) {
-                        userSelections.set(taskId, 'small');
-                        updateSingleFeedback(taskDiv, taskId, correctBase, item);
-                        updateScoreOnly();
-                    }
-                });
-                smallLabel.appendChild(smallRadio);
-                smallLabel.appendChild(document.createTextNode(' small'));
-                
-                // Radio little
-                const littleId = `radio_${taskId}_little`;
-                const littleLabel = document.createElement('label');
-                littleLabel.htmlFor = littleId;
-                const littleRadio = document.createElement('input');
-                littleRadio.type = 'radio';
-                littleRadio.name = `group_${taskId}`;
-                littleRadio.value = 'little';
-                littleRadio.id = littleId;
-                if (selectedValue === 'little') littleRadio.checked = true;
-                littleRadio.addEventListener('change', (e) => {
-                    if (e.target.checked) {
-                        userSelections.set(taskId, 'little');
-                        updateSingleFeedback(taskDiv, taskId, correctBase, item);
-                        updateScoreOnly();
-                    }
-                });
-                littleLabel.appendChild(littleRadio);
-                littleLabel.appendChild(document.createTextNode(' little'));
-                
-                optionsDiv.appendChild(smallLabel);
-                optionsDiv.appendChild(littleLabel);
-                
-                const feedbackSpan = document.createElement('span');
-                feedbackSpan.className = 'feedback';
-                taskDiv.appendChild(textSpan);
-                taskDiv.appendChild(optionsDiv);
-                taskDiv.appendChild(feedbackSpan);
-                sectionDiv.appendChild(taskDiv);
-                
-                taskDiv.feedbackSpan = feedbackSpan;
-                taskDiv.taskId = taskId;
-                taskDiv.correctAnswer = correctBase;
-                taskDiv.itemData = item;
-                updateSingleFeedback(taskDiv, taskId, correctBase, item);
-            });
-            root.appendChild(sectionDiv);
-        });
-        updateScoreOnly();
-    }
-    
-    function updateSingleFeedback(taskDiv, taskId, correctAnswer, item) {
+    function updateSingleFeedback(taskDiv, taskId, correctAnswer, item, forceReveal = false) {
         const selected = userSelections.get(taskId);
         const feedbackSpan = taskDiv.feedbackSpan;
+        const shouldShowReveal = forceReveal || revealActive;
+        
+        const oldBadge = taskDiv.querySelector('.show-answer-hint');
+        if (oldBadge) oldBadge.remove();
+        
         if (!selected) {
             feedbackSpan.innerHTML = '⚡ не выбран';
             feedbackSpan.className = 'feedback neutral-feedback';
+            if (shouldShowReveal) {
+                const hintText = (item && item.hint) ? ` — ${item.hint}` : '';
+                const badge = document.createElement('span');
+                badge.className = 'show-answer-hint';
+                badge.innerHTML = `✓ правильный ответ: ${correctAnswer}${hintText}`;
+                taskDiv.appendChild(badge);
+                taskDiv.classList.add('highlight-unanswered');
+            } else {
+                taskDiv.classList.remove('highlight-unanswered');
+            }
             return;
         }
+        
+        taskDiv.classList.remove('highlight-unanswered');
         const isCorrect = (selected === correctAnswer);
         let hintText = (item && item.hint) ? ` (${item.hint})` : '';
         if (isCorrect) {
             feedbackSpan.innerHTML = `✓ верно!${hintText}`;
             feedbackSpan.className = 'feedback correct-feedback';
         } else {
-            let correctWord = correctAnswer;
-            feedbackSpan.innerHTML = `✗ неверно. Правильно: ${correctWord}${hintText}`;
+            feedbackSpan.innerHTML = `✗ неверно. Правильно: ${correctAnswer}${hintText}`;
             feedbackSpan.className = 'feedback wrong-feedback';
         }
     }
@@ -509,7 +390,7 @@
         }
     }
     
-    function refreshAllFeedbacks() {
+    function refreshAllFeedbacks(forceReveal = false) {
         for (let exIdx = 0; exIdx < allExercises.length; exIdx++) {
             const items = allExercises[exIdx].items;
             for (let itemIdx = 0; itemIdx < items.length; itemIdx++) {
@@ -518,55 +399,129 @@
                 const tasks = document.querySelectorAll('.task');
                 for (let taskDiv of tasks) {
                     if (taskDiv.taskId === taskId) {
-                        updateSingleFeedback(taskDiv, taskId, correctBase, items[itemIdx]);
+                        updateSingleFeedback(taskDiv, taskId, correctBase, items[itemIdx], forceReveal);
                         break;
                     }
                 }
             }
         }
         updateScoreOnly();
+    }
+    
+    function revealAllAnswers() {
+        revealActive = true;
+        refreshAllFeedbacks(true);
+        setTimeout(() => {
+            revealActive = false;
+            refreshAllFeedbacks(false);
+        }, 7000);
+        const panel = document.getElementById('scorePanel');
+        if (panel) {
+            panel.innerHTML = `🔍 Режим подсказок активен на 7 секунд. Неотвеченные задания подсвечены.`;
+            setTimeout(() => updateScoreOnly(), 3000);
+        }
     }
     
     function resetAllSelections() {
         userSelections.clear();
+        revealActive = false;
         const allRadios = document.querySelectorAll('input[type="radio"]');
         allRadios.forEach(radio => radio.checked = false);
-        // обновить все фидбеки
-        for (let exIdx = 0; exIdx < allExercises.length; exIdx++) {
-            const items = allExercises[exIdx].items;
-            for (let itemIdx = 0; itemIdx < items.length; itemIdx++) {
-                const taskId = `${exIdx}-${itemIdx}`;
-                const correctBase = getCanonicalCorrect(items[itemIdx]);
-                const tasks = document.querySelectorAll('.task');
-                for (let taskDiv of tasks) {
-                    if (taskDiv.taskId === taskId) {
-                        updateSingleFeedback(taskDiv, taskId, correctBase, items[itemIdx]);
-                        break;
-                    }
-                }
-            }
-        }
-        updateScoreOnly();
+        refreshAllFeedbacks(false);
     }
     
-    function checkAll() {
-        refreshAllFeedbacks();
-        const { totalCorrect, totalQuestions, totalAnswered } = computeScore();
-        const panel = document.getElementById('scorePanel');
-        if (panel) {
-            let msg = `🎯 ПРОВЕРКА: ${totalCorrect} / ${totalQuestions} правильных. `;
-            if (totalAnswered < totalQuestions) msg += ` (Остались неотвеченные задания)`;
-            else if (totalCorrect === totalQuestions) msg += ` Превосходно! ✨`;
-            else msg += ` Обратите внимание на подсказки.`;
-            panel.innerHTML = msg;
-        }
+    function render() {
+        const root = document.getElementById('exercises-root');
+        if (!root) return;
+        root.innerHTML = '';
+        
+        allExercises.forEach((ex, exIdx) => {
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'section';
+            const titleEl = document.createElement('h2');
+            titleEl.innerHTML = ex.title;
+            sectionDiv.appendChild(titleEl);
+            
+            ex.items.forEach((item, itemIdx) => {
+                const taskId = `${exIdx}-${itemIdx}`;
+                const selectedValue = userSelections.get(taskId) || '';
+                const correctBase = getCanonicalCorrect(item);
+                
+                const taskDiv = document.createElement('div');
+                taskDiv.className = 'task';
+                const textSpan = document.createElement('div');
+                textSpan.className = 'task-text';
+                textSpan.innerText = item.text;
+                
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+                
+                // Radio at the end
+                const atId = `radio_${taskId}_at`;
+                const atLabel = document.createElement('label');
+                atLabel.htmlFor = atId;
+                const atRadio = document.createElement('input');
+                atRadio.type = 'radio';
+                atRadio.name = `group_${taskId}`;
+                atRadio.value = 'at the end';
+                atRadio.id = atId;
+                if (selectedValue === 'at the end') atRadio.checked = true;
+                atRadio.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        userSelections.set(taskId, 'at the end');
+                        updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
+                        updateScoreOnly();
+                    }
+                });
+                atLabel.appendChild(atRadio);
+                atLabel.appendChild(document.createTextNode(' at the end'));
+                
+                // Radio in the end
+                const inId = `radio_${taskId}_in`;
+                const inLabel = document.createElement('label');
+                inLabel.htmlFor = inId;
+                const inRadio = document.createElement('input');
+                inRadio.type = 'radio';
+                inRadio.name = `group_${taskId}`;
+                inRadio.value = 'in the end';
+                inRadio.id = inId;
+                if (selectedValue === 'in the end') inRadio.checked = true;
+                inRadio.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        userSelections.set(taskId, 'in the end');
+                        updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
+                        updateScoreOnly();
+                    }
+                });
+                inLabel.appendChild(inRadio);
+                inLabel.appendChild(document.createTextNode(' in the end'));
+                
+                optionsDiv.appendChild(atLabel);
+                optionsDiv.appendChild(inLabel);
+                
+                const feedbackSpan = document.createElement('span');
+                feedbackSpan.className = 'feedback';
+                taskDiv.appendChild(textSpan);
+                taskDiv.appendChild(optionsDiv);
+                taskDiv.appendChild(feedbackSpan);
+                sectionDiv.appendChild(taskDiv);
+                
+                taskDiv.feedbackSpan = feedbackSpan;
+                taskDiv.taskId = taskId;
+                taskDiv.correctAnswer = correctBase;
+                taskDiv.itemData = item;
+                updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
+            });
+            root.appendChild(sectionDiv);
+        });
+        updateScoreOnly();
     }
     
     function init() {
         render();
-        const checkBtn = document.getElementById('checkAllBtn');
+        const revealBtn = document.getElementById('revealAnswersBtn');
         const resetBtn = document.getElementById('resetAllBtn');
-        if (checkBtn) checkBtn.addEventListener('click', checkAll);
+        if (revealBtn) revealBtn.addEventListener('click', revealAllAnswers);
         if (resetBtn) resetBtn.addEventListener('click', resetAllSelections);
     }
     
