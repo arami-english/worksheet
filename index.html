@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Small vs Little — интерактивный тренажёр</title>
+    <title>On time vs In time — интерактивный тренажёр</title>
     <style>
         * {
             box-sizing: border-box;
         }
         body {
-            background: #f0f4f8;
+            background: #f0f4fa;
             font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
             margin: 0;
             padding: 24px 20px;
@@ -29,13 +29,13 @@
             margin-top: 0;
             margin-bottom: 0.25rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #1f5e3a, #2c7a47);
+            background: linear-gradient(135deg, #7a4a1f, #b86e2e);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
         .sub {
-            color: #3a5e48;
+            color: #6b4a2c;
             border-left: 4px solid #f4b942;
             padding-left: 18px;
             margin: 15px 0 25px 0;
@@ -44,7 +44,7 @@
             font-weight: 500;
         }
         .rule-card {
-            background: #eef3e9;
+            background: #f5ede4;
             border-radius: 28px;
             padding: 18px 24px;
             margin-bottom: 32px;
@@ -61,7 +61,7 @@
             margin: 0 0 10px 0;
             font-size: 1.3rem;
         }
-        .small-badge {
+        .on-badge {
             background: #cfe6df;
             color: #1a4d3a;
             padding: 4px 14px;
@@ -70,7 +70,7 @@
             display: inline-block;
             margin-bottom: 8px;
         }
-        .little-badge {
+        .in-badge {
             background: #fde6c0;
             color: #a45d2e;
             padding: 4px 14px;
@@ -175,7 +175,7 @@
             white-space: nowrap;
         }
         button {
-            background: #2c6e49;
+            background: #b86e2e;
             color: white;
             border: none;
             padding: 12px 28px;
@@ -188,7 +188,7 @@
             margin-top: 8px;
         }
         button:hover {
-            background: #1f5438;
+            background: #9a5a24;
             transform: scale(0.97);
         }
         .reset-btn {
@@ -232,30 +232,30 @@
 </head>
 <body>
 <div class="container">
-    <h1>📦 Small  vs  Little</h1>
+    <h1>⏰ On time  vs  In time</h1>
     <div class="sub">
-        🔹 <strong>small</strong> — физический размер, нейтральные измерения, масштаб (антоним large/big)<br>
-        🔹 <strong>little</strong> — эмоции, возраст, умиление, субъективное отношение + «немного» (неисчисляемое)
+        🔹 <strong>on time</strong> — вовремя, по расписанию (не опоздать, точно в назначенное время)<br>
+        🔹 <strong>in time</strong> — достаточно рано, с запасом времени (успеть до чего-то, не опоздать к событию)
     </div>
     <div class="rule-card">
         <div class="rule">
-            <span class="small-badge">📏 SMALL (мир физики)</span>
+            <span class="on-badge">⏱️ ON TIME</span>
             <ul style="margin: 8px 0 0 18px; padding-left: 0;">
-                <li>размер, площадь, рост</li>
-                <li>одежда/обувь (too small)</li>
-                <li>компания/группа/количество</li>
-                <li>нейтральная характеристика</li>
-                <li>степени сравнения: smaller, smallest</li>
+                <li>по расписанию, точно в срок</li>
+                <li>не опоздать</li>
+                <li>поезд, самолёт, встреча</li>
+                <li>отвечает на вопрос «когда?»</li>
+                <li>синоним: punctually</li>
             </ul>
         </div>
         <div class="rule">
-            <span class="little-badge">❤️ LITTLE (мир эмоций и возраста)</span>
+            <span class="in-badge">🕐 IN TIME</span>
             <ul style="margin: 8px 0 0 18px;">
-                <li>младший брат/сестра (little brother)</li>
-                <li>умиление: cute little house</li>
-                <li>пренебрежение: dirty little secret</li>
-                <li>a little + неисчисл. (немного)</li>
-                <li>little by little, a little bit</li>
+                <li>достаточно рано, с запасом</li>
+                <li>успеть до какого-то события</li>
+                <li>часто с <strong>for</strong> (in time for)</li>
+                <li>синоним: early enough</li>
+                <li>в значении «со временем»</li>
             </ul>
         </div>
     </div>
@@ -276,38 +276,38 @@
 
 <script>
     // ==============================================================
-    // УПРАЖНЕНИЯ: Small vs Little
+    // УПРАЖНЕНИЯ: On time vs In time
     // ==============================================================
     
     const exercise1 = {
-        title: "📌 Упражнение 1. Факты или эмоции? (Small vs Little)",
+        title: "📖 Упражнение 1. Выберите правильный вариант",
         items: [
-            { text: "I have a ______ sister; she is five years old.", correct: "little", hint: "возраст/родство — младшая сестра" },
-            { text: "This room is too ______ for ten people.", correct: "small", hint: "физическая вместимость" },
-            { text: "Look at that ______ bird in the nest! It's so sweet.", correct: "little", hint: "умиление, милый" },
-            { text: "He lives in a ______ apartment in the city center.", correct: "small", hint: "нейтральный размер" },
-            { text: "Don't worry, it's just a ______ mistake.", correct: "small", hint: "незначительная ошибка (нейтрально)" },
-            { text: "The shirt I bought is a size too ______.", correct: "small", hint: "размер одежды" },
-            { text: "We stayed in a charming ______ hotel by the sea.", correct: "little", hint: "очарование, уют" },
-            { text: "A ______ number of people attended the lecture.", correct: "small", hint: "официальное количество" },
-            { text: "I remember that ______ toy I had when I was a child.", correct: "little", hint: "ностальгия, эмоция" },
-            { text: "My feet are very ______; I wear size 35.", correct: "small", hint: "физический размер ноги" }
+            { text: "The train arrived ______, exactly at 10:00.", correct: "on time", hint: "точно по расписанию" },
+            { text: "We got to the station just ______ to catch the last train.", correct: "in time", hint: "успели с запасом" },
+            { text: "Please try to be ______ for the meeting.", correct: "on time", hint: "не опоздать на встречу" },
+            { text: "I arrived ______ for dinner.", correct: "in time", hint: "успел к ужину" },
+            { text: "The bus is never ______.", correct: "on time", hint: "автобус всегда опаздывает" },
+            { text: "She got to the airport ______ to check her bags.", correct: "in time", hint: "успела сдать багаж" },
+            { text: "If you leave now, you'll be ______.", correct: "on time", hint: "не опоздаешь" },
+            { text: "The teacher arrived ______ for the lesson.", correct: "in time", hint: "пришла к началу урока" },
+            { text: "The train is running late, it won't be ______.", correct: "on time", hint: "не будет по расписанию" },
+            { text: "We'll finish the project ______.", correct: "in time", hint: "в срок, до дедлайна" }
         ]
     };
     
     const exercise2 = {
-        title: "💖 Упражнение 2. Переведите на английский (little — возраст, эмоции, немного)",
+        title: "🔄 Упражнение 2. Переведите на английский",
         items: [
-            { text: "У меня есть маленькая (младшая) сестра. → I have a ______ sister.", correct: "little", hint: "little sister = младшая сестра" },
-            { text: "Посмотри на этот милый маленький цветок! → Look at this cute ______ flower!", correct: "little", hint: "умиление" },
-            { text: "Когда я был маленьким, я любил молоко. → When I was ______, I loved milk.", correct: "little", hint: "when I was little = в детстве" },
-            { text: "Это его маленькая грязная тайна. → It's his dirty ______ secret.", correct: "little", hint: "dirty little secret — эмоц. окраска" },
-            { text: "Она живет в уютном маленьком домике. → She lives in a cozy ______ house.", correct: "little", hint: "уютный маленький домик" },
-            { text: "Дай мне немного времени. → Give me a ______ time.", correct: "little", hint: "a little time = немного времени" },
-            { text: "Мой младший брат выше меня. → My ______ brother is taller than me.", correct: "little", hint: "little brother = младший брат" },
-            { text: "Он — гадкий маленький человек (пренебрежение). → He is a nasty ______ man.", correct: "little", hint: "пренебрежительное little" },
-            { text: "В этой бутылке мало воды. → There is ______ water in this bottle.", correct: "little", hint: "little water = мало воды" },
-            { text: "Мало-помалу мы закончим работу. → ______ by little we will finish.", correct: "little", hint: "little by little" }
+            { text: "Поезд прибыл вовремя. → The train arrived ______.", correct: "on time", hint: "точно по расписанию" },
+            { text: "Мы успели на спектакль. → We got to the theatre just ______ for the play.", correct: "in time", hint: "успели к началу" },
+            { text: "Пожалуйста, приходите вовремя на собрание. → Please come ______ for the meeting.", correct: "on time", hint: "не опаздывайте" },
+            { text: "Он пришёл достаточно рано, чтобы помочь мне. → He came ______ to help me.", correct: "in time", hint: "с запасом времени" },
+            { text: "Рейс отправился по расписанию. → The flight departed ______.", correct: "on time", hint: "по расписанию" },
+            { text: "Мы добрались до вокзала как раз к отправлению. → We got to the station just ______ for the departure.", correct: "in time", hint: "успели" },
+            { text: "Я всегда стараюсь быть вовремя. → I always try to be ______.", correct: "on time", hint: "не опаздывать" },
+            { text: "Она закончила работу к вечеру. → She finished her work just ______ for the evening.", correct: "in time", hint: "к вечеру, до вечера" },
+            { text: "Начало концерта было точно в 7. → The concert started ______ at 7.", correct: "on time", hint: "ровно в 7" },
+            { text: "Мы приехали вовремя, чтобы всё увидеть. → We arrived ______ to see everything.", correct: "in time", hint: "успели всё увидеть" }
         ]
     };
 
@@ -456,48 +456,48 @@
                 const optionsDiv = document.createElement('div');
                 optionsDiv.className = 'options';
                 
-                // Radio small
-                const smallId = `radio_${taskId}_small`;
-                const smallLabel = document.createElement('label');
-                smallLabel.htmlFor = smallId;
-                const smallRadio = document.createElement('input');
-                smallRadio.type = 'radio';
-                smallRadio.name = `group_${taskId}`;
-                smallRadio.value = 'small';
-                smallRadio.id = smallId;
-                if (selectedValue === 'small') smallRadio.checked = true;
-                smallRadio.addEventListener('change', (e) => {
+                // Radio on time
+                const onId = `radio_${taskId}_on`;
+                const onLabel = document.createElement('label');
+                onLabel.htmlFor = onId;
+                const onRadio = document.createElement('input');
+                onRadio.type = 'radio';
+                onRadio.name = `group_${taskId}`;
+                onRadio.value = 'on time';
+                onRadio.id = onId;
+                if (selectedValue === 'on time') onRadio.checked = true;
+                onRadio.addEventListener('change', (e) => {
                     if (e.target.checked) {
-                        userSelections.set(taskId, 'small');
+                        userSelections.set(taskId, 'on time');
                         updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
                         updateScoreOnly();
                     }
                 });
-                smallLabel.appendChild(smallRadio);
-                smallLabel.appendChild(document.createTextNode(' small'));
+                onLabel.appendChild(onRadio);
+                onLabel.appendChild(document.createTextNode(' on time'));
                 
-                // Radio little
-                const littleId = `radio_${taskId}_little`;
-                const littleLabel = document.createElement('label');
-                littleLabel.htmlFor = littleId;
-                const littleRadio = document.createElement('input');
-                littleRadio.type = 'radio';
-                littleRadio.name = `group_${taskId}`;
-                littleRadio.value = 'little';
-                littleRadio.id = littleId;
-                if (selectedValue === 'little') littleRadio.checked = true;
-                littleRadio.addEventListener('change', (e) => {
+                // Radio in time
+                const inId = `radio_${taskId}_in`;
+                const inLabel = document.createElement('label');
+                inLabel.htmlFor = inId;
+                const inRadio = document.createElement('input');
+                inRadio.type = 'radio';
+                inRadio.name = `group_${taskId}`;
+                inRadio.value = 'in time';
+                inRadio.id = inId;
+                if (selectedValue === 'in time') inRadio.checked = true;
+                inRadio.addEventListener('change', (e) => {
                     if (e.target.checked) {
-                        userSelections.set(taskId, 'little');
+                        userSelections.set(taskId, 'in time');
                         updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
                         updateScoreOnly();
                     }
                 });
-                littleLabel.appendChild(littleRadio);
-                littleLabel.appendChild(document.createTextNode(' little'));
+                inLabel.appendChild(inRadio);
+                inLabel.appendChild(document.createTextNode(' in time'));
                 
-                optionsDiv.appendChild(smallLabel);
-                optionsDiv.appendChild(littleLabel);
+                optionsDiv.appendChild(onLabel);
+                optionsDiv.appendChild(inLabel);
                 
                 const feedbackSpan = document.createElement('span');
                 feedbackSpan.className = 'feedback';
