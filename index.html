@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>On time vs In time — интерактивный тренажёр</title>
+    <title>At first / First / Firstly — интерактивный тренажёр</title>
     <style>
         * {
             box-sizing: border-box;
@@ -29,50 +29,59 @@
             margin-top: 0;
             margin-bottom: 0.25rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #7a4a1f, #b86e2e);
+            background: linear-gradient(135deg, #4a2c7a, #7a4a9e);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
         .sub {
-            color: #6b4a2c;
-            border-left: 4px solid #f4b942;
+            color: #5a3a7a;
+            border-left: 4px solid #9a6abe;
             padding-left: 18px;
             margin: 15px 0 25px 0;
-            background: #fef7e0;
+            background: #f5eef7;
             border-radius: 0 20px 20px 0;
             font-weight: 500;
         }
         .rule-card {
-            background: #f5ede4;
+            background: #f0eaf5;
             border-radius: 28px;
             padding: 18px 24px;
             margin-bottom: 32px;
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 16px;
             justify-content: space-between;
         }
         .rule {
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
         }
         .rule h3 {
             margin: 0 0 10px 0;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
-        .on-badge {
-            background: #cfe6df;
-            color: #1a4d3a;
+        .at-badge {
+            background: #d4c4e8;
+            color: #3a1a5a;
             padding: 4px 14px;
             border-radius: 40px;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 8px;
         }
-        .in-badge {
-            background: #fde6c0;
-            color: #a45d2e;
+        .first-badge {
+            background: #c4dce8;
+            color: #1a4a5a;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .firstly-badge {
+            background: #e8d4c4;
+            color: #5a3a1a;
             padding: 4px 14px;
             border-radius: 40px;
             font-weight: 700;
@@ -122,19 +131,20 @@
         }
         .options {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             align-items: center;
             flex-wrap: wrap;
         }
         .options label {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: #f0f3f8;
-            padding: 6px 18px;
+            padding: 4px 14px;
             border-radius: 60px;
             cursor: pointer;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: all 0.2s;
         }
         .options label:hover {
@@ -142,8 +152,8 @@
             transform: scale(0.97);
         }
         .options input {
-            width: 18px;
-            height: 18px;
+            width: 17px;
+            height: 17px;
             margin: 0;
             cursor: pointer;
         }
@@ -175,7 +185,7 @@
             white-space: nowrap;
         }
         button {
-            background: #b86e2e;
+            background: #6a3a8a;
             color: white;
             border: none;
             padding: 12px 28px;
@@ -188,7 +198,7 @@
             margin-top: 8px;
         }
         button:hover {
-            background: #9a5a24;
+            background: #4a2a6a;
             transform: scale(0.97);
         }
         .reset-btn {
@@ -227,35 +237,47 @@
                 margin-left: 0;
                 margin-top: 6px;
             }
+            .options label {
+                font-size: 0.85rem;
+                padding: 4px 10px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>⏰ On time  vs  In time</h1>
+    <h1>🔢 At first  /  First  /  Firstly</h1>
     <div class="sub">
-        🔹 <strong>on time</strong> — вовремя, по расписанию (не опоздать, точно в назначенное время)<br>
-        🔹 <strong>in time</strong> — достаточно рано, с запасом времени (успеть до чего-то, не опоздать к событию)
+        🔹 <strong>at first</strong> — сначала, вначале (но потом изменилось), противопоставление<br>
+        🔹 <strong>first</strong> — первый по порядку, во-первых (перечисление), впервые<br>
+        🔹 <strong>firstly</strong> — во-первых (формальное перечисление, синоним first)
     </div>
     <div class="rule-card">
         <div class="rule">
-            <span class="on-badge">⏱️ ON TIME</span>
+            <span class="at-badge">🔄 AT FIRST</span>
             <ul style="margin: 8px 0 0 18px; padding-left: 0;">
-                <li>по расписанию, точно в срок</li>
-                <li>не опоздать</li>
-                <li>поезд, самолёт, встреча</li>
-                <li>отвечает на вопрос «когда?»</li>
-                <li>синоним: punctually</li>
+                <li>сначала, поначалу</li>
+                <li>подразумевает изменение позже</li>
+                <li>часто с <strong>but</strong> или <strong>then</strong></li>
+                <li>не используется в перечислении</li>
             </ul>
         </div>
         <div class="rule">
-            <span class="in-badge">🕐 IN TIME</span>
+            <span class="first-badge">1️⃣ FIRST</span>
             <ul style="margin: 8px 0 0 18px;">
-                <li>достаточно рано, с запасом</li>
-                <li>успеть до какого-то события</li>
-                <li>часто с <strong>for</strong> (in time for)</li>
-                <li>синоним: early enough</li>
-                <li>в значении «со временем»</li>
+                <li>первый по порядку (во-первых)</li>
+                <li>впервые (first time)</li>
+                <li>в начале перечисления</li>
+                <li>может быть наречием или прилагательным</li>
+            </ul>
+        </div>
+        <div class="rule">
+            <span class="firstly-badge">📋 FIRSTLY</span>
+            <ul style="margin: 8px 0 0 18px;">
+                <li>во-первых (формально)</li>
+                <li>только в перечислении</li>
+                <li>обычно с <strong>secondly</strong>, <strong>thirdly</strong></li>
+                <li>более официальный стиль</li>
             </ul>
         </div>
     </div>
@@ -276,42 +298,58 @@
 
 <script>
     // ==============================================================
-    // УПРАЖНЕНИЯ: On time vs In time
+    // УПРАЖНЕНИЯ: At first / First / Firstly
     // ==============================================================
     
     const exercise1 = {
         title: "📖 Упражнение 1. Выберите правильный вариант",
         items: [
-            { text: "The train arrived ______, exactly at 10:00.", correct: "on time", hint: "точно по расписанию" },
-            { text: "We got to the station just ______ to catch the last train.", correct: "in time", hint: "успели с запасом" },
-            { text: "Please try to be ______ for the meeting.", correct: "on time", hint: "не опоздать на встречу" },
-            { text: "I arrived ______ for dinner.", correct: "in time", hint: "успел к ужину" },
-            { text: "The bus is never ______.", correct: "on time", hint: "автобус всегда опаздывает" },
-            { text: "She got to the airport ______ to check her bags.", correct: "in time", hint: "успела сдать багаж" },
-            { text: "If you leave now, you'll be ______.", correct: "on time", hint: "не опоздаешь" },
-            { text: "The teacher arrived ______ for the lesson.", correct: "in time", hint: "пришла к началу урока" },
-            { text: "The train is running late, it won't be ______.", correct: "on time", hint: "не будет по расписанию" },
-            { text: "We'll finish the project ______.", correct: "in time", hint: "в срок, до дедлайна" }
+            { text: "______, I thought he was a doctor, but then I realized he was a nurse.", correct: "at first", hint: "сначала думала, но потом изменила мнение" },
+            { text: "______, let me introduce myself.", correct: "first", hint: "первым делом, в начале разговора" },
+            { text: "______, I'd like to thank everyone for coming.", correct: "firstly", hint: "формальное перечисление, во-первых" },
+            { text: "______, I didn't like the food, but later I got used to it.", correct: "at first", hint: "поначалу не нравилось, потом привыкла" },
+            { text: "This is the ______ time I've been here.", correct: "first", hint: "впервые" },
+            { text: "______, we need to check the budget, and secondly, the timeline.", correct: "firstly", hint: "во-первых... во-вторых (формально)" },
+            { text: "______, it seemed like a good idea, but I changed my mind.", correct: "at first", hint: "сначала казалось, но потом передумал" },
+            { text: "She was ______ in line to get the tickets.", correct: "first", hint: "первая в очереди" },
+            { text: "______, I'm going to explain the rules.", correct: "first", hint: "первым делом объясню правила" },
+            { text: "______, I want to say that I'm proud of you.", correct: "firstly", hint: "во-первых, хочу сказать (формально)" }
         ]
     };
     
     const exercise2 = {
         title: "🔄 Упражнение 2. Переведите на английский",
         items: [
-            { text: "Поезд прибыл вовремя. → The train arrived ______.", correct: "on time", hint: "точно по расписанию" },
-            { text: "Мы успели на спектакль. → We got to the theatre just ______ for the play.", correct: "in time", hint: "успели к началу" },
-            { text: "Пожалуйста, приходите вовремя на собрание. → Please come ______ for the meeting.", correct: "on time", hint: "не опаздывайте" },
-            { text: "Он пришёл достаточно рано, чтобы помочь мне. → He came ______ to help me.", correct: "in time", hint: "с запасом времени" },
-            { text: "Рейс отправился по расписанию. → The flight departed ______.", correct: "on time", hint: "по расписанию" },
-            { text: "Мы добрались до вокзала как раз к отправлению. → We got to the station just ______ for the departure.", correct: "in time", hint: "успели" },
-            { text: "Я всегда стараюсь быть вовремя. → I always try to be ______.", correct: "on time", hint: "не опаздывать" },
-            { text: "Она закончила работу к вечеру. → She finished her work just ______ for the evening.", correct: "in time", hint: "к вечеру, до вечера" },
-            { text: "Начало концерта было точно в 7. → The concert started ______ at 7.", correct: "on time", hint: "ровно в 7" },
-            { text: "Мы приехали вовремя, чтобы всё увидеть. → We arrived ______ to see everything.", correct: "in time", hint: "успели всё увидеть" }
+            { text: "Сначала я думал, что он шутит, но потом понял, что он серьёзен. → ______ I thought he was joking, but then I realized he was serious.", correct: "at first", hint: "сначала думал, потом понял" },
+            { text: "Во-первых, я хочу поблагодарить всех за поддержку. → ______, I'd like to thank everyone for their support.", correct: "firstly", hint: "формальное перечисление" },
+            { text: "Это мой первый раз в Лондоне. → This is my ______ time in London.", correct: "first", hint: "первый раз" },
+            { text: "Сначала она была против, но потом согласилась. → ______ she was against it, but later she agreed.", correct: "at first", hint: "поначалу была против, потом согласилась" },
+            { text: "Во-первых, давайте проверим все документы. → ______, let's check all the documents.", correct: "first", hint: "первым делом (можно first или firstly)" },
+            { text: "Сначала я не понимал, что делать. → ______ I didn't know what to do.", correct: "at first", hint: "поначалу не понимал" },
+            { text: "Во-первых, это слишком дорого. Во-вторых, это далеко. → ______, it's too expensive. Secondly, it's far away.", correct: "firstly", hint: "формальное перечисление: firstly, secondly" },
+            { text: "Кто пришёл первым? → Who came ______?", correct: "first", hint: "первым по порядку" },
+            { text: "Поначалу это казалось невозможным. → ______ it seemed impossible.", correct: "at first", hint: "поначалу казалось" },
+            { text: "Я впервые вижу такой красивый закат. → This is the ______ time I've seen such a beautiful sunset.", correct: "first", hint: "впервые" }
+        ]
+    };
+    
+    const exercise3 = {
+        title: "🎯 Упражнение 3. Заполните пропуск (контекст)",
+        items: [
+            { text: "______, I couldn't understand the lesson, but after studying I got it.", correct: "at first", hint: "поначалу не понимал, потом понял" },
+            { text: "______, I need to finish my homework, and then I can go out.", correct: "first", hint: "первым делом сделать уроки" },
+            { text: "______, I apologize for the delay. Secondly, I'd like to start the meeting.", correct: "firstly", hint: "формальное начало: firstly... secondly" },
+            { text: "The ______ thing we need to do is call the police.", correct: "first", hint: "первая вещь, которую нужно сделать" },
+            { text: "______, everything was quiet, but then the noise started.", correct: "at first", hint: "поначалу было тихо, потом шум" },
+            { text: "______, I'd like to say hello to everyone.", correct: "first", hint: "первым делом поздороваться" },
+            { text: "______, I want to thank my family. ______, I want to thank my friends.", correct: "firstly", hint: "во-первых... во-вторых (формально)" },
+            { text: "______, it was love, but later it became friendship.", correct: "at first", hint: "сначала была любовь, потом дружба" },
+            { text: "She was the ______ person to arrive.", correct: "first", hint: "первый человек, который пришёл" },
+            { text: "______, I thought it was a joke, but then I realized it was true.", correct: "at first", hint: "сначала думал шутка, потом понял правду" }
         ]
     };
 
-    const allExercises = [exercise1, exercise2];
+    const allExercises = [exercise1, exercise2, exercise3];
     
     let userSelections = new Map();
     let revealActive = false;
@@ -456,48 +494,69 @@
                 const optionsDiv = document.createElement('div');
                 optionsDiv.className = 'options';
                 
-                // Radio on time
-                const onId = `radio_${taskId}_on`;
-                const onLabel = document.createElement('label');
-                onLabel.htmlFor = onId;
-                const onRadio = document.createElement('input');
-                onRadio.type = 'radio';
-                onRadio.name = `group_${taskId}`;
-                onRadio.value = 'on time';
-                onRadio.id = onId;
-                if (selectedValue === 'on time') onRadio.checked = true;
-                onRadio.addEventListener('change', (e) => {
+                // Radio at first
+                const atId = `radio_${taskId}_at`;
+                const atLabel = document.createElement('label');
+                atLabel.htmlFor = atId;
+                const atRadio = document.createElement('input');
+                atRadio.type = 'radio';
+                atRadio.name = `group_${taskId}`;
+                atRadio.value = 'at first';
+                atRadio.id = atId;
+                if (selectedValue === 'at first') atRadio.checked = true;
+                atRadio.addEventListener('change', (e) => {
                     if (e.target.checked) {
-                        userSelections.set(taskId, 'on time');
+                        userSelections.set(taskId, 'at first');
                         updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
                         updateScoreOnly();
                     }
                 });
-                onLabel.appendChild(onRadio);
-                onLabel.appendChild(document.createTextNode(' on time'));
+                atLabel.appendChild(atRadio);
+                atLabel.appendChild(document.createTextNode(' at first'));
                 
-                // Radio in time
-                const inId = `radio_${taskId}_in`;
-                const inLabel = document.createElement('label');
-                inLabel.htmlFor = inId;
-                const inRadio = document.createElement('input');
-                inRadio.type = 'radio';
-                inRadio.name = `group_${taskId}`;
-                inRadio.value = 'in time';
-                inRadio.id = inId;
-                if (selectedValue === 'in time') inRadio.checked = true;
-                inRadio.addEventListener('change', (e) => {
+                // Radio first
+                const fId = `radio_${taskId}_first`;
+                const fLabel = document.createElement('label');
+                fLabel.htmlFor = fId;
+                const fRadio = document.createElement('input');
+                fRadio.type = 'radio';
+                fRadio.name = `group_${taskId}`;
+                fRadio.value = 'first';
+                fRadio.id = fId;
+                if (selectedValue === 'first') fRadio.checked = true;
+                fRadio.addEventListener('change', (e) => {
                     if (e.target.checked) {
-                        userSelections.set(taskId, 'in time');
+                        userSelections.set(taskId, 'first');
                         updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
                         updateScoreOnly();
                     }
                 });
-                inLabel.appendChild(inRadio);
-                inLabel.appendChild(document.createTextNode(' in time'));
+                fLabel.appendChild(fRadio);
+                fLabel.appendChild(document.createTextNode(' first'));
                 
-                optionsDiv.appendChild(onLabel);
-                optionsDiv.appendChild(inLabel);
+                // Radio firstly
+                const flId = `radio_${taskId}_firstly`;
+                const flLabel = document.createElement('label');
+                flLabel.htmlFor = flId;
+                const flRadio = document.createElement('input');
+                flRadio.type = 'radio';
+                flRadio.name = `group_${taskId}`;
+                flRadio.value = 'firstly';
+                flRadio.id = flId;
+                if (selectedValue === 'firstly') flRadio.checked = true;
+                flRadio.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        userSelections.set(taskId, 'firstly');
+                        updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
+                        updateScoreOnly();
+                    }
+                });
+                flLabel.appendChild(flRadio);
+                flLabel.appendChild(document.createTextNode(' firstly'));
+                
+                optionsDiv.appendChild(atLabel);
+                optionsDiv.appendChild(fLabel);
+                optionsDiv.appendChild(flLabel);
                 
                 const feedbackSpan = document.createElement('span');
                 feedbackSpan.className = 'feedback';
