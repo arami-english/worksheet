@@ -3,48 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Do vs Make — интерактивный тренажёр</title>
+    <title>Repeat vs Revise — интерактивный тренажёр</title>
     <style>
+        /* ===== ОБЩИЕ СТИЛИ ===== */
         * {
             box-sizing: border-box;
-        }
-        body {
-            background: #f0f4fa;
-            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: linear-gradient(145deg, #f5f7fa 0%, #e9edf5 100%);
+            min-height: 100vh;
             padding: 24px 20px;
             color: #1e2a3e;
         }
+
         .container {
             max-width: 1150px;
             margin: 0 auto;
-            background: white;
-            border-radius: 40px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
-            overflow: hidden;
-            padding: 28px 30px 42px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 48px;
+            padding: 40px 45px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
+
         h1 {
             font-size: 2.2rem;
-            margin-top: 0;
-            margin-bottom: 0.25rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #1a6a5a, #2a9a8a);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            color: #1a2639;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
         }
+
         .sub {
-            color: #1a6a5a;
-            border-left: 4px solid #f4b942;
+            color: #5a3a6a;
+            border-left: 4px solid #c97ab8;
             padding-left: 18px;
             margin: 15px 0 25px 0;
-            background: #fef7e0;
+            background: #f5eef7;
             border-radius: 0 20px 20px 0;
             font-weight: 500;
         }
+
         .rule-card {
-            background: #e5f2ef;
+            background: #f0eaf5;
             border-radius: 28px;
             padding: 18px 24px;
             margin-bottom: 32px;
@@ -61,16 +71,16 @@
             margin: 0 0 10px 0;
             font-size: 1.3rem;
         }
-        .do-badge {
-            background: #c4e6df;
-            color: #0a4a3a;
+        .repeat-badge {
+            background: #d4c4e8;
+            color: #3a1a5a;
             padding: 4px 14px;
             border-radius: 40px;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 8px;
         }
-        .make-badge {
+        .revise-badge {
             background: #fde6c0;
             color: #a45d2e;
             padding: 4px 14px;
@@ -79,6 +89,20 @@
             display: inline-block;
             margin-bottom: 8px;
         }
+        .rule ul {
+            margin: 8px 0 0 18px;
+            padding-left: 0;
+        }
+        .rule ul li {
+            list-style: none;
+            margin-bottom: 4px;
+        }
+        .rule ul li::before {
+            content: '• ';
+            font-weight: 700;
+        }
+
+        /* ===== СЕКЦИИ ===== */
         .section {
             background: white;
             border: 1px solid #e2e8f0;
@@ -98,6 +122,8 @@
             align-items: center;
             gap: 12px;
         }
+
+        /* ===== ЗАДАНИЯ (стиль как в первых двух тренажёрах) ===== */
         .task {
             margin-bottom: 16px;
             background: #fefefc;
@@ -120,9 +146,12 @@
             flex: 2;
             min-width: 200px;
         }
-        .task-text .highlight-word {
-            font-weight: 700;
-            color: #1e2a3e;
+        .task-text .blank {
+            display: inline-block;
+            min-width: 90px;
+            border-bottom: 3px dotted #94a3b8;
+            font-weight: 600;
+            text-align: center;
         }
         .options {
             display: flex;
@@ -179,8 +208,109 @@
             margin-left: 8px;
             white-space: nowrap;
         }
+
+        /* ===== ТРЕТЬЕ ЗАДАНИЕ (НОВЫЙ СТИЛЬ) ===== */
+        .question-card {
+            background: white;
+            border-radius: 28px;
+            padding: 22px 28px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            transition: 0.2s ease;
+        }
+        .question-card.correct {
+            border-left: 8px solid #22c55e;
+            background: #f0fdf4;
+        }
+        .question-card.wrong {
+            border-left: 8px solid #ef4444;
+            background: #fef2f2;
+        }
+        .question-card.disabled {
+            opacity: 0.8;
+        }
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0f172a;
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+        .question-text .blank {
+            display: inline-block;
+            min-width: 100px;
+            border-bottom: 3px dotted #94a3b8;
+            color: #1e293b;
+            font-weight: 600;
+            text-align: center;
+        }
+        .question-options {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .question-options button {
+            padding: 10px 28px;
+            border: 2px solid #d1d9e6;
+            background: white;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            transition: 0.15s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            flex: 0 1 auto;
+        }
+        .question-options button:hover:not(:disabled) {
+            background: #f1f5f9;
+            border-color: #64748b;
+            transform: scale(1.02);
+        }
+        .question-options button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .question-options button.selected-correct {
+            background: #22c55e;
+            border-color: #16a34a;
+            color: white;
+        }
+        .question-options button.selected-wrong {
+            background: #ef4444;
+            border-color: #dc2626;
+            color: white;
+        }
+        .feedback-card {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-size: 0.98rem;
+            display: none;
+            line-height: 1.5;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .feedback-card.show {
+            display: block;
+        }
+        .feedback-card .hint {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .feedback-card .hint i {
+            font-style: normal;
+            background: #dbeafe;
+            padding: 2px 10px;
+            border-radius: 20px;
+            color: #1d4ed8;
+        }
+
+        /* ===== КНОПКИ ===== */
         button {
-            background: #1a8a7a;
+            background: #7a4a8a;
             color: white;
             border: none;
             padding: 12px 28px;
@@ -193,11 +323,16 @@
             margin-top: 8px;
         }
         button:hover {
-            background: #0a6a5a;
+            background: #5a3a6a;
             transform: scale(0.97);
         }
         .reset-btn {
-            background: #5f6c84;
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+        }
+        .reset-btn:hover {
+            background: #cbd5e1;
         }
         .reveal-btn {
             background: #d99e2c;
@@ -205,6 +340,7 @@
         .reveal-btn:hover {
             background: #b87d1a;
         }
+
         .score-area {
             background: #eef2fa;
             border-radius: 28px;
@@ -214,12 +350,22 @@
             font-weight: bold;
             font-size: 1.15rem;
         }
+
+        .btn-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
         footer {
             text-align: center;
             font-size: 0.8rem;
             color: #6c7a91;
             margin-top: 28px;
         }
+
         @media (max-width: 680px) {
             .container {
                 padding: 18px;
@@ -232,37 +378,41 @@
                 margin-left: 0;
                 margin-top: 6px;
             }
-            .options label {
-                font-size: 0.85rem;
-                padding: 4px 10px;
+            .question-text {
+                font-size: 1rem;
+            }
+            .question-options button {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+                flex: 1 0 auto;
             }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>⚡ Do  vs  Make</h1>
+    <h1>🔄 Repeat  vs  Revise</h1>
     <div class="sub">
-        🔹 <strong>do</strong> — для действий, задач, обязанностей, работы (не создаётся новый объект)<br>
-        🔹 <strong>make</strong> — для создания, производства, приготовления (создаётся что-то новое)
+        🔹 <strong>repeat</strong> — делать что-то снова (без изменений), повторять, сказать ещё раз<br>
+        🔹 <strong>revise</strong> — пересмотреть, изменить, доработать, повторять пройденный материал (для экзаменов)
     </div>
     <div class="rule-card">
         <div class="rule">
-            <span class="do-badge">✅ DO (действие)</span>
-            <ul style="margin: 8px 0 0 18px; padding-left: 0;">
-                <li>работа, обязанности (do homework, do the dishes)</li>
-                <li>действия без конкретного результата</li>
-                <li>занятия спортом (do yoga, do exercise)</li>
-                <li>устойчивые выражения: do your best, do business</li>
+            <span class="repeat-badge">🔁 REPEAT</span>
+            <ul>
+                <li>делать снова (то же самое)</li>
+                <li>сказать ещё раз</li>
+                <li>повторять действие без изменений</li>
+                <li>повторять за кем-то</li>
             </ul>
         </div>
         <div class="rule">
-            <span class="make-badge">🛠️ MAKE (создание)</span>
-            <ul style="margin: 8px 0 0 18px;">
-                <li>создание, приготовление (make coffee, make a cake)</li>
-                <li>производство (make furniture)</li>
-                <li>деньги (make money)</li>
-                <li>устойчивые выражения: make a decision, make a mistake</li>
+            <span class="revise-badge">✏️ REVISE</span>
+            <ul>
+                <li>пересмотреть, изменить, доработать</li>
+                <li>повторять материал (for exams)</li>
+                <li>вносить исправления</li>
+                <li>синонимы: review, amend, update</li>
             </ul>
         </div>
     </div>
@@ -272,7 +422,7 @@
     <div class="score-area" id="scorePanel">
         📊 Выберите ответ — проверка мгновенная
     </div>
-    <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 12px;">
+    <div class="btn-group">
         <button id="revealAnswersBtn" class="reveal-btn">🔍 Показать все правильные ответы</button>
         <button id="resetAllBtn" class="reset-btn">⟳ Сбросить все ответы</button>
     </div>
@@ -283,61 +433,70 @@
 
 <script>
     // ==============================================================
-    // УПРАЖНЕНИЯ: Do vs Make
+    // УПРАЖНЕНИЯ: Repeat vs Revise
     // ==============================================================
     
     const exercise1 = {
         title: "📖 Упражнение 1. Выберите правильный вариант",
         items: [
-            { text: "I need to ______ my homework before dinner.", correct: "do", hint: "делать домашнюю работу (задание)" },
-            { text: "She wants to ______ a cake for the party.", correct: "make", hint: "приготовить торт (создать)" },
-            { text: "Can you ______ me a favour?", correct: "do", hint: "сделать одолжение (устойчивое выражение)" },
-            { text: "They ______ a lot of money in their business.", correct: "make", hint: "зарабатывать деньги (создавать прибыль)" },
-            { text: "I always ______ my best in every situation.", correct: "do", hint: "стараться (устойчивое выражение)" },
-            { text: "He ______ a terrible mistake in his report.", correct: "make", hint: "сделать ошибку (создать ошибку)" },
-            { text: "She ______ the dishes after dinner.", correct: "do", hint: "мыть посуду (выполнять работу)" },
-            { text: "Could you ______ me a cup of coffee?", correct: "make", hint: "приготовить кофе (создать напиток)" },
-            { text: "I need to ______ some research for my article.", correct: "do", hint: "проводить исследование (действие)" },
-            { text: "We need to ______ a decision right now.", correct: "make", hint: "принять решение (создать решение)" }
+            { text: "Could you ______ that, please? I didn't hear you.", correct: "repeat", hint: "сказать ещё раз (повторить)" },
+            { text: "I need to ______ my essay before submitting it.", correct: "revise", hint: "пересмотреть, доработать эссе" },
+            { text: "She ______ the same mistake three times.", correct: "repeated", hint: "повторила ту же ошибку (без изменений)" },
+            { text: "I'm going to ______ for the history exam all weekend.", correct: "revise", hint: "повторять материал к экзамену (revise for exam)" },
+            { text: "Could you ______ the instructions one more time?", correct: "repeat", hint: "повторить инструкции ещё раз" },
+            { text: "The company decided to ______ its strategy after the market changed.", correct: "revise", hint: "пересмотреть стратегию (внести изменения)" },
+            { text: "He ______ the song three times because he kept forgetting the lyrics.", correct: "repeated", hint: "повторил песню несколько раз" },
+            { text: "I always ______ my notes before a test.", correct: "revise", hint: "повторять записи к тесту" },
+            { text: "Please ______ after me: 'I love learning English'.", correct: "repeat", hint: "повторять за мной" },
+            { text: "The teacher asked us to ______ our homework before handing it in.", correct: "revise", hint: "доработать, проверить домашнюю работу" }
         ]
     };
     
     const exercise2 = {
         title: "🔄 Упражнение 2. Переведите на английский",
         items: [
-            { text: "Я делаю уроки каждый вечер. → I ______ my homework every evening.", correct: "do", hint: "делать уроки" },
-            { text: "Она готовит завтрак для семьи. → She ______ breakfast for the family.", correct: "makes", hint: "готовит завтрак (создаёт)" },
-            { text: "Мы зарабатываем деньги в интернете. → We ______ money online.", correct: "make", hint: "зарабатывать деньги" },
-            { text: "Он всегда делает всё возможное. → He always ______ his best.", correct: "does", hint: "делать всё возможное" },
-            { text: "Я сделал глупую ошибку. → I ______ a silly mistake.", correct: "made", hint: "сделать ошибку" },
-            { text: "Ты не мог бы сделать мне одолжение? → Could you ______ me a favour?", correct: "do", hint: "сделать одолжение" },
-            { text: "Она делает упражнения каждый день. → She ______ exercise every day.", correct: "does", hint: "делать упражнения" },
-            { text: "Мы приняли важное решение. → We ______ an important decision.", correct: "made", hint: "принять решение" },
-            { text: "Мне нужно сделать уборку. → I need to ______ the cleaning.", correct: "do", hint: "делать уборку" },
-            { text: "Он строит планы на лето. → He ______ plans for the summer.", correct: "makes", hint: "строить планы (создавать)" }
+            { text: "Повторите, пожалуйста, ещё раз. → Please ______ that one more time.", correct: "repeat", hint: "сказать ещё раз" },
+            { text: "Мне нужно пересмотреть свой план. → I need to ______ my plan.", correct: "revise", hint: "пересмотреть и изменить план" },
+            { text: "Она повторяла одно и то же целый час. → She ______ the same thing for an hour.", correct: "repeated", hint: "повторяла (без изменений)" },
+            { text: "Я учусь к экзамену по математике. → I'm ______ for the math exam.", correct: "revising", hint: "повторять к экзамену" },
+            { text: "Повторите за мной слово 'beautiful'. → ______ after me the word 'beautiful'.", correct: "repeat", hint: "повторять за кем-то" },
+            { text: "Они пересмотрели контракт перед подписанием. → They ______ the contract before signing.", correct: "revised", hint: "пересмотрели, внесли изменения" },
+            { text: "Не повторяй эту ошибку! → Don't ______ this mistake!", correct: "repeat", hint: "не делай снова" },
+            { text: "Я пересматриваю свою презентацию для конференции. → I'm ______ my presentation for the conference.", correct: "revising", hint: "дорабатывать презентацию" },
+            { text: "Он повторил свой номер телефона дважды. → He ______ his phone number twice.", correct: "repeated", hint: "сказал снова" },
+            { text: "Нам нужно пересмотреть наш подход к этому вопросу. → We need to ______ our approach to this issue.", correct: "revise", hint: "пересмотреть подход (изменить)" }
         ]
     };
     
-    const exercise3 = {
-        title: "🔍 Упражнение 3. Найдите ошибку или подтвердите правильность",
-        items: [
-            { text: "She always <span class='highlight-word'>does</span> her bed in the morning. → выберите исправление:", correct: "make", hint: "заправлять кровать (make the bed)" },
-            { text: "I need to <span class='highlight-word'>make</span> the laundry today. → выберите исправление:", correct: "do", hint: "делать стирку (do the laundry)" },
-            { text: "He <span class='highlight-word'>made</span> his best in the competition. → выберите исправление:", correct: "do", hint: "делать всё возможное (do your best)" },
-            { text: "Can you <span class='highlight-word'>do</span> a decision by tomorrow? → выберите исправление:", correct: "make", hint: "принять решение (make a decision)" },
-            { text: "She <span class='highlight-word'>does</span> exercise every morning. → выберите исправление:", correct: "no error", hint: "всё верно — do exercise (делать упражнения)" },
-            { text: "He wants to <span class='highlight-word'>do</span> a fortune in real estate. → выберите исправление:", correct: "make", hint: "заработать состояние (make a fortune)" },
-            { text: "I always <span class='highlight-word'>do</span> my homework before dinner. → выберите исправление:", correct: "no error", hint: "всё верно — do homework (делать домашнюю работу)" },
-            { text: "Could you <span class='highlight-word'>do</span> me a coffee, please? → выберите исправление:", correct: "make", hint: "приготовить кофе (make coffee)" },
-            { text: "We need to <span class='highlight-word'>make</span> a plan for the project. → выберите исправление:", correct: "no error", hint: "всё верно — make a plan (составить план)" },
-            { text: "She <span class='highlight-word'>does</span> mistakes in her tests. → выберите исправление:", correct: "make", hint: "делать ошибки (make mistakes)" }
-        ]
-    };
+    // ==============================================================
+    // УПРАЖНЕНИЕ 3 — НОВЫЙ СТИЛЬ (из вашего файла)
+    // ==============================================================
+    const exercise3Data = [
+        { text: 'I need to ______ this chapter before the exam tomorrow.', correct: 'revise', hint: '📌 Перед экзаменом мы <b>повторяем материал</b> (изучаем заново, систематизируем) — это revise.' },
+        { text: 'Could you ______ that, please? I didn\'t hear you the first time.', correct: 'repeat', hint: '📌 Просьба сказать <b>ещё раз</b> то же самое — это repeat.' },
+        { text: 'The teacher told us to ______ our essays and fix the grammar mistakes.', correct: 'revise', hint: '📌 Исправить ошибки, пересмотреть текст — это revise (доработать).' },
+        { text: 'The parrot can ______ simple words after its owner.', correct: 'repeat', hint: '📌 Попугай <b>повторяет</b> звуки (копирует) — repeat.' },
+        { text: 'Let\'s ______ the main points of the meeting before we finish.', correct: 'revise', hint: '📌 Пробежаться по главным пунктам, освежить в памяти — revise (в значении "повторить пройденное").' },
+        { text: 'Don\'t just ______ the same mistake — try to understand why it happened.', correct: 'repeat', hint: '📌 Совершить <b>ту же</b> ошибку снова — repeat (действие повторяется).' },
+        { text: 'The editor asked me to ______ the article to make it clearer.', correct: 'revise', hint: '📌 Переработать, отредактировать текст — revise (внести изменения).' },
+        { text: 'The exercise is boring: we just ______ the same dialogues in every lesson.', correct: 'repeat', hint: '📌 Делать <b>одно и то же</b> действие без изменений — repeat.' },
+        { text: 'After finishing the draft, she decided to ______ the entire plan.', correct: 'revise', hint: '📌 Пересмотреть, изменить план (внести коррективы) — revise.' },
+        { text: 'The students ______ the vocabulary daily to memorize it better.', correct: 'revise', hint: '📌 Ежедневно <b>повторять</b> слова для запоминания (в учебном процессе) — revise (британский вариант).' }
+    ];
 
-    const allExercises = [exercise1, exercise2, exercise3];
+    // ==============================================================
+    // ОБЩАЯ ЛОГИКА
+    // ==============================================================
     
+    const allExercises = [exercise1, exercise2];
     let userSelections = new Map();
     let revealActive = false;
+    
+    // Для 3-го упражнения (новый стиль)
+    let ex3State = {
+        answers: new Array(exercise3Data.length).fill(null), // 'correct' или 'wrong'
+        selectedWord: new Array(exercise3Data.length).fill(null), // 'repeat' или 'revise'
+    };
     
     function getCanonicalCorrect(item) {
         return item.correct;
@@ -383,6 +542,8 @@
         let totalCorrect = 0;
         let totalAnswered = 0;
         let totalQuestions = 0;
+        
+        // упражнения 1 и 2
         for (let exIdx = 0; exIdx < allExercises.length; exIdx++) {
             const items = allExercises[exIdx].items;
             for (let itemIdx = 0; itemIdx < items.length; itemIdx++) {
@@ -396,6 +557,16 @@
                 }
             }
         }
+        
+        // упражнение 3 (новый стиль)
+        for (let i = 0; i < exercise3Data.length; i++) {
+            totalQuestions++;
+            if (ex3State.answers[i] !== null) {
+                totalAnswered++;
+                if (ex3State.answers[i] === 'correct') totalCorrect++;
+            }
+        }
+        
         return { totalCorrect, totalQuestions, totalAnswered };
     }
     
@@ -414,6 +585,7 @@
     }
     
     function refreshAllFeedbacks(forceReveal = false) {
+        // упражнения 1 и 2
         for (let exIdx = 0; exIdx < allExercises.length; exIdx++) {
             const items = allExercises[exIdx].items;
             for (let itemIdx = 0; itemIdx < items.length; itemIdx++) {
@@ -428,6 +600,9 @@
                 }
             }
         }
+        
+        // упражнение 3 — перерисовываем целиком
+        renderExercise3();
         updateScoreOnly();
     }
     
@@ -448,15 +623,27 @@
     function resetAllSelections() {
         userSelections.clear();
         revealActive = false;
+        ex3State.answers = new Array(exercise3Data.length).fill(null);
+        ex3State.selectedWord = new Array(exercise3Data.length).fill(null);
         const allRadios = document.querySelectorAll('input[type="radio"]');
         allRadios.forEach(radio => radio.checked = false);
         refreshAllFeedbacks(false);
     }
     
-    function render() {
+    // ==============================================================
+    // РЕНДЕР УПРАЖНЕНИЙ 1 и 2 (старый стиль)
+    // ==============================================================
+    function renderExercises12() {
         const root = document.getElementById('exercises-root');
         if (!root) return;
-        root.innerHTML = '';
+        
+        // Удаляем всё, кроме контейнера для 3-го упражнения
+        const existingEx3 = document.getElementById('exercise3-container');
+        if (existingEx3) existingEx3.remove();
+        
+        // Создаём контейнер для упражнений 1 и 2
+        const container12 = document.createElement('div');
+        container12.id = 'exercises12-container';
         
         allExercises.forEach((ex, exIdx) => {
             const sectionDiv = document.createElement('div');
@@ -469,7 +656,6 @@
                 const taskId = `${exIdx}-${itemIdx}`;
                 const selectedValue = userSelections.get(taskId) || '';
                 const correctBase = getCanonicalCorrect(item);
-                const isExercise3 = (exIdx === 2);
                 
                 const taskDiv = document.createElement('div');
                 taskDiv.className = 'task';
@@ -480,70 +666,47 @@
                 const optionsDiv = document.createElement('div');
                 optionsDiv.className = 'options';
                 
-                // Radio do
-                const doId = `radio_${taskId}_do`;
-                const doLabel = document.createElement('label');
-                doLabel.htmlFor = doId;
-                const doRadio = document.createElement('input');
-                doRadio.type = 'radio';
-                doRadio.name = `group_${taskId}`;
-                doRadio.value = 'do';
-                doRadio.id = doId;
-                if (selectedValue === 'do') doRadio.checked = true;
-                doRadio.addEventListener('change', (e) => {
+                // Radio repeat
+                const repId = `radio_${taskId}_repeat`;
+                const repLabel = document.createElement('label');
+                repLabel.htmlFor = repId;
+                const repRadio = document.createElement('input');
+                repRadio.type = 'radio';
+                repRadio.name = `group_${taskId}`;
+                repRadio.value = 'repeat';
+                repRadio.id = repId;
+                if (selectedValue === 'repeat') repRadio.checked = true;
+                repRadio.addEventListener('change', (e) => {
                     if (e.target.checked) {
-                        userSelections.set(taskId, 'do');
+                        userSelections.set(taskId, 'repeat');
                         updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
                         updateScoreOnly();
                     }
                 });
-                doLabel.appendChild(doRadio);
-                doLabel.appendChild(document.createTextNode(' do'));
-                optionsDiv.appendChild(doLabel);
+                repLabel.appendChild(repRadio);
+                repLabel.appendChild(document.createTextNode(' repeat'));
+                optionsDiv.appendChild(repLabel);
                 
-                // Radio make
-                const makeId = `radio_${taskId}_make`;
-                const makeLabel = document.createElement('label');
-                makeLabel.htmlFor = makeId;
-                const makeRadio = document.createElement('input');
-                makeRadio.type = 'radio';
-                makeRadio.name = `group_${taskId}`;
-                makeRadio.value = 'make';
-                makeRadio.id = makeId;
-                if (selectedValue === 'make') makeRadio.checked = true;
-                makeRadio.addEventListener('change', (e) => {
+                // Radio revise
+                const revId = `radio_${taskId}_revise`;
+                const revLabel = document.createElement('label');
+                revLabel.htmlFor = revId;
+                const revRadio = document.createElement('input');
+                revRadio.type = 'radio';
+                revRadio.name = `group_${taskId}`;
+                revRadio.value = 'revise';
+                revRadio.id = revId;
+                if (selectedValue === 'revise') revRadio.checked = true;
+                revRadio.addEventListener('change', (e) => {
                     if (e.target.checked) {
-                        userSelections.set(taskId, 'make');
+                        userSelections.set(taskId, 'revise');
                         updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
                         updateScoreOnly();
                     }
                 });
-                makeLabel.appendChild(makeRadio);
-                makeLabel.appendChild(document.createTextNode(' make'));
-                optionsDiv.appendChild(makeLabel);
-                
-                // Radio no error — ТОЛЬКО ДЛЯ 3-ГО УПРАЖНЕНИЯ
-                if (isExercise3) {
-                    const noErrorId = `radio_${taskId}_noerror`;
-                    const noErrorLabel = document.createElement('label');
-                    noErrorLabel.htmlFor = noErrorId;
-                    const noErrorRadio = document.createElement('input');
-                    noErrorRadio.type = 'radio';
-                    noErrorRadio.name = `group_${taskId}`;
-                    noErrorRadio.value = 'no error';
-                    noErrorRadio.id = noErrorId;
-                    if (selectedValue === 'no error') noErrorRadio.checked = true;
-                    noErrorRadio.addEventListener('change', (e) => {
-                        if (e.target.checked) {
-                            userSelections.set(taskId, 'no error');
-                            updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
-                            updateScoreOnly();
-                        }
-                    });
-                    noErrorLabel.appendChild(noErrorRadio);
-                    noErrorLabel.appendChild(document.createTextNode(' без ошибок'));
-                    optionsDiv.appendChild(noErrorLabel);
-                }
+                revLabel.appendChild(revRadio);
+                revLabel.appendChild(document.createTextNode(' revise'));
+                optionsDiv.appendChild(revLabel);
                 
                 const feedbackSpan = document.createElement('span');
                 feedbackSpan.className = 'feedback';
@@ -558,18 +721,165 @@
                 taskDiv.itemData = item;
                 updateSingleFeedback(taskDiv, taskId, correctBase, item, false);
             });
-            root.appendChild(sectionDiv);
+            container12.appendChild(sectionDiv);
         });
+        
+        root.appendChild(container12);
+        
+        // Добавляем контейнер для 3-го упражнения
+        const ex3Container = document.createElement('div');
+        ex3Container.id = 'exercise3-container';
+        ex3Container.className = 'section';
+        const title3 = document.createElement('h2');
+        title3.innerHTML = '✍️ Упражнение 3. Выберите правильное слово';
+        ex3Container.appendChild(title3);
+        root.appendChild(ex3Container);
+        
+        renderExercise3();
         updateScoreOnly();
     }
     
+    // ==============================================================
+    // РЕНДЕР УПРАЖНЕНИЯ 3 (НОВЫЙ СТИЛЬ)
+    // ==============================================================
+    function renderExercise3() {
+        const container = document.getElementById('exercise3-container');
+        if (!container) return;
+        
+        // Оставляем только заголовок
+        const title = container.querySelector('h2');
+        container.innerHTML = '';
+        if (title) container.appendChild(title);
+        
+        exercise3Data.forEach((q, idx) => {
+            const isAnswered = ex3State.answers[idx] !== null;
+            const statusClass = isAnswered ? (ex3State.answers[idx] === 'correct' ? 'correct' : 'wrong') : '';
+            const disabledAttr = isAnswered ? 'disabled' : '';
+            
+            let repeatBtnClass = '';
+            let reviseBtnClass = '';
+            if (isAnswered) {
+                if (ex3State.selectedWord[idx] === 'repeat') {
+                    repeatBtnClass = (ex3State.answers[idx] === 'correct') ? 'selected-correct' : 'selected-wrong';
+                }
+                if (ex3State.selectedWord[idx] === 'revise') {
+                    reviseBtnClass = (ex3State.answers[idx] === 'correct') ? 'selected-correct' : 'selected-wrong';
+                }
+            }
+            
+            const showFeedback = isAnswered ? 'show' : '';
+            
+            const card = document.createElement('div');
+            card.className = `question-card ${statusClass} ${isAnswered ? 'disabled' : ''}`;
+            card.dataset.index = idx;
+            
+            const textDiv = document.createElement('div');
+            textDiv.className = 'question-text';
+            textDiv.innerHTML = q.text.replace('______', '<span class="blank">______</span>');
+            card.appendChild(textDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'question-options';
+            
+            const repeatBtn = document.createElement('button');
+            repeatBtn.dataset.word = 'repeat';
+            repeatBtn.dataset.index = idx;
+            repeatBtn.disabled = !!disabledAttr;
+            repeatBtn.className = repeatBtnClass;
+            repeatBtn.textContent = '🔁 Repeat';
+            repeatBtn.addEventListener('click', handleExercise3Answer);
+            optionsDiv.appendChild(repeatBtn);
+            
+            const reviseBtn = document.createElement('button');
+            reviseBtn.dataset.word = 'revise';
+            reviseBtn.dataset.index = idx;
+            reviseBtn.disabled = !!disabledAttr;
+            reviseBtn.className = reviseBtnClass;
+            reviseBtn.textContent = '📝 Revise';
+            reviseBtn.addEventListener('click', handleExercise3Answer);
+            optionsDiv.appendChild(reviseBtn);
+            
+            card.appendChild(optionsDiv);
+            
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = `feedback-card ${showFeedback}`;
+            feedbackDiv.innerHTML = `
+                <div class="hint">💡 ${q.hint}</div>
+                ${isAnswered ? `<div style="margin-top:6px;font-weight:500;">${ex3State.answers[idx] === 'correct' ? '✅ Верно!' : '❌ Неверно. Попробуй запомнить объяснение.'}</div>` : ''}
+            `;
+            card.appendChild(feedbackDiv);
+            
+            container.appendChild(card);
+        });
+    }
+    
+    // ==============================================================
+    // ОБРАБОТЧИК ДЛЯ 3-ГО УПРАЖНЕНИЯ
+    // ==============================================================
+    function handleExercise3Answer(e) {
+        const btn = e.currentTarget;
+        const idx = parseInt(btn.dataset.index, 10);
+        const selected = btn.dataset.word;
+        
+        if (ex3State.answers[idx] !== null) return;
+        
+        const question = exercise3Data[idx];
+        const isCorrect = (selected === question.correct);
+        
+        ex3State.answers[idx] = isCorrect ? 'correct' : 'wrong';
+        ex3State.selectedWord[idx] = selected;
+        
+        renderExercise3();
+        updateScoreOnly();
+        
+        // Проверка на завершение
+        const allAnswered = ex3State.answers.every(a => a !== null);
+        if (allAnswered) {
+            const total = exercise3Data.length;
+            const correct = ex3State.answers.filter(a => a === 'correct').length;
+            setTimeout(() => {
+                // Проверяем также упражнения 1 и 2
+                let totalAll = total;
+                let correctAll = correct;
+                for (let exIdx = 0; exIdx < allExercises.length; exIdx++) {
+                    const items = allExercises[exIdx].items;
+                    for (let itemIdx = 0; itemIdx < items.length; itemIdx++) {
+                        totalAll++;
+                        const taskId = `${exIdx}-${itemIdx}`;
+                        const selectedVal = userSelections.get(taskId);
+                        if (selectedVal) {
+                            const correctBase = getCanonicalCorrect(items[itemIdx]);
+                            if (selectedVal === correctBase) correctAll++;
+                        }
+                    }
+                }
+                let message = '';
+                if (correctAll === totalAll) message = '🌟 Превосходно! Ты отлично чувствуешь разницу!';
+                else if (correctAll >= totalAll * 0.7) message = '👍 Хорошо! Обрати внимание на подсказки, где ошибся.';
+                else message = '🔄 Попробуй пройти ещё раз, запоминая контекст.';
+                alert(`🏁 Готово! Твой результат: ${correctAll} из ${totalAll}.\n${message}`);
+            }, 200);
+        }
+    }
+    
+    // ==============================================================
+    // ИНИЦИАЛИЗАЦИЯ
+    // ==============================================================
     function init() {
-        render();
+        renderExercises12();
         const revealBtn = document.getElementById('revealAnswersBtn');
         const resetBtn = document.getElementById('resetAllBtn');
         if (revealBtn) revealBtn.addEventListener('click', revealAllAnswers);
         if (resetBtn) resetBtn.addEventListener('click', resetAllSelections);
     }
+    
+    // Добавляем обработчик для клавиши R (сброс)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
+            e.preventDefault();
+            resetAllSelections();
+        }
+    });
     
     init();
 </script>
